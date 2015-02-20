@@ -1,7 +1,7 @@
 gwt-gis
 =======
 
-Online GIS Client created using the gwt-esri library
+Online GIS Client created using the [gwt-esri](https://github.com/CSTARS/gwt-esri) library
 
 ## Sample Implementation
 ```
