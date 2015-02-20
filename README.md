@@ -38,7 +38,7 @@ MyConfig config = (MyConfig) AppManager.INSTANCE.getConfig();
 ### Config Options
 ```
 var mapConfig = {
-  // the defualt layers that will show on the right hand layer list
+  // the default layers that will show on the right hand layer list
   // note: order here defines default order in list.
   dataLayers : [{
     // nice name for the layer
