@@ -45,11 +45,11 @@ var mapConfig = {
     label : '',
     // url to arcgis service or kml file
     url : '',
-    // legend url... if you are using the load legend service
+    // legend url... if you are using the old legend service
     legendUrl : '',
-    // is your legend really a long list of gradient colors?  Set this flag to make the css fit
+    // is your legend really a long list of gradient colors?  Set this flag to make the css fit the legend
     legendIsGradient : false,
-    // show the legend be expended (visible) by default
+    // show the legend be expanded (visible) by default
     showLegend : false,
     // should the layer be visible by default
     visible : true,
@@ -67,9 +67,9 @@ var mapConfig = {
     iconUrl : ''
   }, ...],
   
-  // you can provide wfs layers that can be used to by the query tool for layer intersection.  Ex:
-  // you provide a county layer, then a user can use select a county to see what visible layers
-  // intersect that county
+  // you can provide service layers that can be used to by the query tool for layer intersection.  Ex:
+  // you provide a county layer, then a user can select a county to see what visible layers
+  // intersect that county in the identify tool
   intersectLayers : [{
     // same as dataLayer
   }, ...],
@@ -90,7 +90,7 @@ var mapConfig = {
   // initial zoom level
   zoom : 7,
   
-  // id of element client should be anchored to.  If not provided, the client will run
+  // id of HTML element client should be anchored to.  If not provided, the client will run
   // in fullscreen mode, appending to the body element
   anchor : '',
   
@@ -98,7 +98,7 @@ var mapConfig = {
   title : 'MyMaps',
   
   // url of the NodeJS Proxy and Utility Server (see node dir in repo)
-  // adds ability to export queries as shapefiles, kml or csv, allows query access cross-domain
+  // adds ability to export queries as shapefiles, kml or csv, allows cross-domain query 
   // access to non CORS enabled arcgis services.
   proxy : '',
   
@@ -121,11 +121,11 @@ var mapConfig = {
     allowLegendSelection : ''
   },
   
-  // enable the app's idenitify tool, so user can make queries
-  // will use intersect layers if provided above
+  // enable the app's idenitify tool, so user can make point or bbox queries
+  // will use intersect layers as well if provided above
   identifyTool : false,
   
-  // enable users to upload shapefiles and add to map.  Will use the arcgis.com service to parse
+  // allow users to upload shapefiles and add to map.  Will use the arcgis.com service to parse
   shapefileUpload : false,
   
   // enable Google Drive saving, loading and sharing of gwt-gis client maps.
@@ -135,15 +135,15 @@ var mapConfig = {
     // google client id, visit here for more information: https://code.google.com/apis/console
     clientId : '',
     // google drive app id (required for sharing)
-	  // visit here for more information: https://code.google.com/apis/console
-	  // then click 'Drive SDK', your 'App Id' is located in the top left of the center panel
+    // visit here for more information: https://code.google.com/apis/console
+    // then click 'Drive SDK', your 'App Id' is located in the top left of the center panel
     appId : '',
     // google 'Simple Api Access' Key
-  	// visit here for more information: https://code.google.com/apis/console
-  	// then 'Create new Browser key' and set your apps 'refers' in the appropriate box
-  	// this key is used when a 'non-logged-in' user loads a public map.  The request
-  	// is then seen as a generic api access and thus, needs a key
-    apiKey : '',
+    // visit here for more information: https://code.google.com/apis/console
+    // then 'Create new Browser key' and set your apps 'refers' in the appropriate box
+    // this key is used when a 'non-logged-in' user loads a public map.  The request
+    // is then seen as a generic api access and thus, needs a key
+    apiKey : ''
   }
   
   // services that should be used by the search box
@@ -152,9 +152,9 @@ var mapConfig = {
     url : "http://myserver.com/ArcGIS/rest/services/Boundaries/Areas/MapServer/0",
     // either "query" or "geocoder"
     type : "query",
-    // for query service, what attribute do you want to search against
+    // for query service (not required for geocoder), what attribute do you want to search against
     parameter : "NAME",
-    // option format function.  Name that service will be passed, you can format name as
+    // option format function.  Result name will be passed, you can format name as
     // you see fit here
     format : function(attr) {
       return attr.NAME+" (City)";
