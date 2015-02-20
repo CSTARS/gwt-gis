@@ -1,0 +1,111 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:gis="urn:import:edu.ucdavis.gwt.gis.client.extras">
+	
+	<ui:with field='resource' type='edu.ucdavis.gwt.gis.client.resources.GadgetResources'/>
+	
+	<ui:style>
+		.title {
+			font-size: 18px;
+			color: #333333;	
+		}
+		.subTitle {
+			font-weight: bold;	
+		}
+		.closeIcon {
+			float: right;	
+		}
+		.selectPanel {
+			margin: 10px 20px 10px 10px;	
+		}
+		.removePanel {
+			margin-top: 10px;
+			padding: 0 10px 10px 10px;
+			border-top: 1px solid #cccccc;
+			width: 100%;
+		}
+		.button {
+			-moz-transition: border 200ms linear;
+			transition: border 200ms linear;
+			-webkit-transition: border 200ms linear;
+		    background-color: #E8E8E8;
+		    border: 1px solid #DDDDDD;
+		    border-radius: 3px 3px 3px 3px;
+		    color: #666666;
+		    cursor: pointer;
+		    font-size: 15px;
+		    margin: 5px;
+		    padding: 5px;
+		    text-align: center;	
+		}
+		.button:hover {
+			color: #333333;
+			border: 1px solid #999999;	
+		}
+		.removeButton {
+			color: 	#2278DA;
+			cursor: pointer;
+		}
+		.helpText {
+			font-size: 12px;
+			color: #888888;
+			font-style: italic;
+		}
+		.tokenPanel {
+			padding: 5px 0 5px 5px;
+			border: 1px solid #eeeeee;
+			background-color: #f8f8f8;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+	
+		<div class="form-horizontal">
+		  <div class="control-group">
+		    <label class="control-label" >Title</label>
+		    <div class="controls">
+		      <g:TextBox ui:field="titleInput" />
+		    </div>
+		  </div>
+		  <div class="control-group" ui:field="mapTypeSelectPanel">
+		    <label class="control-label" >Layer Type</label>
+		    <div class="controls">
+		      	<g:RadioButton ui:field="dynamicMapService" text="Dynamic Map Service" name="mapService"/><br />
+				<g:RadioButton ui:field="tiledMapService" text="Tiled Map Service" name="mapService" />
+		    </div>
+		  </div>
+		  <div class="control-group" ui:field="imageFormatSelectPanel"> 
+		    <label class="control-label" >Image Format</label>
+		    <div class="controls">
+		      	<g:ListBox ui:field="imageFormat" />
+		    </div>
+		  </div>
+		  <div class="control-group" ui:field="legendSelectPanel"> 
+		    <label class="control-label" ></label>
+		    <div class="controls">
+		      	<g:CheckBox text="Legend is Gradient" ui:field="legendIsGradient" />
+		    </div>
+		  </div>
+	    </div>
+
+		<h4>Set Service Token</h4>
+		<g:SimplePanel ui:field="generateTokenHelp" />
+		<div class="form-horizontal">
+		  <div class="control-group">
+		    <label class="control-label" >Token</label>
+		    <div class="controls">
+		      <g:TextBox ui:field="token" />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" >Username</label>
+		    <div class="controls">
+		      <g:TextBox ui:field="tokenUsername" styleName="searchBoxInput" />
+		    </div>
+		  </div>
+		</div>
+		<div class="{style.helpText}">(username not required, but helpful for token management)</div>
+		<div>You can also visit the <g:Anchor ui:field="tokenManager">Token Manager</g:Anchor></div>
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 

@@ -1,0 +1,258 @@
+
+/* remove this after ui upgrade */
+@sprite .filterTitle {
+  gwt-image: 'filters_bg';
+  cursor: move;
+  background-color: #f9f9f9;
+  background-position: bottom;
+  height: 38px;
+  color: #444444;
+  
+  -o-box-shadow: 0px 1px 4px #888888;
+  -ms-box-shadow: 0px 1px 4px #888888;
+  -moz-box-shadow: 0px 1px 4px #888888;
+  -webkit-box-shadow: 0px 1px 4px #888888;
+  box-shadow: 0px 1px 4px #888888;
+}
+
+.legendPanelHeader {
+  /*gwt-image: 'filters_bg';
+  background-color: #f9f9f9;
+  background-position: bottom;*/
+  height: 38px;
+  color: #444444;
+  
+  -moz-box-shadow: 0px 1px 4px #888888;
+  -webkit-box-shadow: 0px 1px 4px #888888;
+  -ms-box-shadow: 0px 1px 4px #888888;
+  -o-box-shadow: 0px 1px 4px #888888;
+  box-shadow: 0px 1px 4px #888888;
+  
+    background: #f6f6f6; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 47%, #ededed 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+}
+
+.legendPanelHeaderError {
+  background-color: #FFEBE8;
+  background-position: bottom;
+  height: 36px;
+  color: #666666;
+  border: 1px solid #DD3C10;
+}
+
+@sprite .collapseButton {
+	gwt-image: 'icon_minimize_u';
+	height: 10px;
+	margin: -1px 4px 1px 8px;
+	width: 10px;
+	cursor: pointer;
+}
+
+@sprite .collapseButtonMouseover {
+	gwt-image: 'icon_minimize';
+	height: 10px;
+	margin: -1px 4px 1px 8px;
+	width: 10px;
+	cursor: pointer;
+}
+
+@sprite .expandButton {
+	gwt-image: 'icon_restore_u';
+	height: 10px;
+	margin: 0px 8px 1px 0px;
+	width: 10px;
+	cursor: pointer;
+}
+
+@sprite .expandButtonMouseover {
+	gwt-image: 'icon_restore';
+	height: 10px;
+	margin: 0px 8px 1px 0px;
+	width: 10px;
+	cursor: pointer;
+}
+
+@sprite .GmapsSearchTool {
+	gwt-image: 'filters_bg';
+	background-color: white;
+	background-position: 0 bottom;
+	opacity: .9;
+	filter: alpha(opacity=90);
+	padding: 5px;
+	border-bottom: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	height: auto;
+	
+	box-shadow: 0px 0px 4px #222222;
+	-moz-box-shadow: 0px 0px 4px #222222;
+	-webkit-box-shadow: 0px 0px 4px #222222;
+	-ms-box-shadow: 0px 0px 4px #222222;
+	-o-box-shadow: 0px 0px 4px #222222;
+	
+	border-radius: 0 0 0 8px;
+	-moz-border-radius: 0 0 0 8px;
+	-webkit-border-radius: 0 0 0 8px;
+	-ms-border-radius: 0 0 0 8px;
+	-o-border-radius: 0 0 0 8px;
+}
+
+@sprite .basemapSelector {
+	gwt-image: 'filters_bg';
+	background-color: white;
+	background-position: 0 bottom;
+	padding: 6px 5px 5px 15px;
+	border-bottom: 1px solid #cccccc;
+	height: auto;
+	
+	box-shadow: 0px 0px 4px #222222;
+	-moz-box-shadow: 0px 0px 4px #222222;
+	-webkit-box-shadow: 0px 0px 4px #222222;
+	-ms-box-shadow: 0px 0px 4px #222222;
+	-o-box-shadow: 0px 0px 4px #222222;
+	
+	border-radius: 0 0 8px 0;
+	-moz-border-radius: 0 0 8px 0;
+	-webkit-border-radius: 0 0 8px 0;
+	-ms-border-radius: 0 0 8px 0;
+	-o-border-radius: 0 0 8px 0;
+}
+
+.basemapSelectorClosed {
+	padding: 6px 5px 5px 15px;
+}
+
+@sprite .LowerToolbar {
+	gwt-image: 'filters_bg';
+	background-color: white;
+	background-position: 0 bottom;
+	opacity: .9;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+	padding: 5px;
+	border-bottom: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	height: auto;
+	
+	box-shadow: 0px 0px 4px #222222;
+	-moz-box-shadow: 0px 0px 4px #222222;
+	-webkit-box-shadow: 0px 0px 4px #222222;
+	
+	border-radius: 0 8px 0 0;
+	-moz-border-radius: 0 8px 0 0;
+	-webkit-border-radius: 0 8px 0 0;
+}
+
+@sprite .GeocodeResultsPanel {
+	gwt-image: 'filters_bg';
+	background-color: white;
+	background-position: 0 bottom;
+	border: 1px solid #cccccc;
+	z-index: 1000;
+	height: auto;
+	padding: 3px;
+	
+	box-shadow: 0px 2px 4px #999999;
+	-moz-box-shadow: 0px 2px 4px #999999;
+	-webkit-box-shadow: 0px 2px 4px #999999;
+	-o-box-shadow: 0px 2px 4px #999999;
+	-ms-box-shadow: 0px 2px 4px #999999;
+	
+	border-radius: 0 0 8px 8px;
+	-moz-border-radius: 0 0 8px 8px;
+	-webkit-border-radius: 0 0 8px 8px;
+	-ms-border-radius: 0 0 8px 8px;
+	-o-border-radius: 0 0 8px 8px;
+}
+
+
+
+.statusPopup {
+	opacity: .9;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+	background-color: white;
+	width: 250px;
+	z-index: 5000;
+	height: auto;
+	
+	box-shadow: 0px 0px 4px #222222;
+	-moz-box-shadow: 0px 0px 4px #222222;
+	-webkit-box-shadow: 0px 0px 4px #222222;
+	-o-box-shadow: 0px 0px 4px #222222;
+	-ms-box-shadow: 0px 0px 4px #222222;
+	
+	-moz-border-radius: 8px 8px 0 0;
+	-webkit-border-radius: 8px 8px 0 0 ;
+	border-radius: 8px 8px 0 0;
+	-ms-border-radius: 8px 8px 0 0;
+	-o-border-radius: 8px 8px 0 0;
+}
+
+.legendPopup {
+	background-color: white;
+	width: 300px;
+	z-index: 5000;
+	
+	-moz-box-shadow: 0 3px 6px #333333;
+	-webkit-box-shadow: 0 3px 6px #333333;
+	box-shadow: 0 3px 6px #333333;
+	-ms-box-shadow: 0 3px 6px #333333;
+	-o-box-shadow: 0 3px 6px #333333;
+	
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	
+	animation: menuAnimation 300ms;
+	-moz-animation: menuAnimation 300ms;
+	-webkit-animation: menuAnimation 300ms;
+	-o-animation: menuAnimation 300ms;
+	-ms-animation: menuAnimation 300ms;
+}
+
+@sprite .legendPopupHeader {
+  gwt-image: 'filters_bg';
+  background-color: #f9f9f9;
+  background-position: bottom;
+  border-bottom: 1px solid #cccccc;
+  height: 24px;
+  color: #333333;
+  font-size: 14px;
+  width: 100%;
+  
+  -moz-border-radius: 8px 8px 0px 0px;
+  -webkit-border-radius: 8px 8px 0px 0px;
+  border-radius: 8px 8px 0px 0px;
+  -ms-border-radius: 8px 8px 0px 0px;
+  -o-border-radius: 8px 8px 0px 0px;
+}
+
+.legendPopupLink {
+	color: #2278da;
+	text-decoration: none;
+}
+
+.InfoWindow {
+	background-color: white;
+	border: 1px solid #cccccc;
+	padding: 8px;
+	margin: 3px;
+	
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	
+	box-shadow: 0 0 5px #cccccc inset;
+	-webkit-box-shadow: 0 0 5px #cccccc inset;	
+	-moz-box-shadow: 0 0 5px #cccccc inset;
+	-ms-box-shadow: 0 0 5px #cccccc inset;
+	-o-box-shadow: 0 0 5px #cccccc inset;
+}

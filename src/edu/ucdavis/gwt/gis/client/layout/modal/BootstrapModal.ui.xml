@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<g:HTMLPanel addStyleNames="modal hide">
+		<div class="modal-header" ui:field="headerPanel">
+			<g:Anchor ui:field="close" addStyleNames="close" >&times;</g:Anchor>
+			<g:SimplePanel ui:field="title"></g:SimplePanel>
+  		</div>
+  		<div class="modal-body" ui:field="bodyPanel">
+  			<g:FlowPanel ui:field="body"></g:FlowPanel>
+  		</div>
+  		<div class="modal-footer" ui:field="footerPanel">
+  			<g:FlowPanel ui:field="footer"></g:FlowPanel>
+  		</div>
+	</g:HTMLPanel>
+	
+</ui:UiBinder> 

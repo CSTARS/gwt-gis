@@ -1,0 +1,85 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:gis="urn:import:edu.ucdavis.gwt.gis.client.extras">
+	
+	<ui:style>
+		.button {
+			-moz-transition: border 200ms linear;
+			transition: border 200ms linear;
+			-webkit-transition: border 200ms linear;
+		    background-color: #E8E8E8;
+		    border: 1px solid #DDDDDD;
+		    border-radius: 3px 3px 3px 3px;
+		    color: #666666;
+		    cursor: pointer;
+		    font-size: 15px;
+		    margin: 5px;
+		    padding: 5px;
+		    text-align: center;	
+		}
+		.button:hover {
+			color: #333333;
+			border: 1px solid #999999;	
+		}
+		.closeButton {
+			float: right;
+		}
+		.messagePanel {
+			color: red;
+			padding: 5px;
+			text-align: center;	
+		}
+		.title {
+			font-size: 18px;
+			color: #333333;	
+		}
+		.subTitle {
+			font-size: 14px;
+			color: #333333;
+			padding: 5px;
+			border-bottom: 1px solid #cccccc;
+			margin: 20px 0 10px 0;
+		}
+		.sp {
+			padding-top: 5px;	
+		}
+	</ui:style>
+	
+	<g:HTMLPanel>
+	
+		<g:VerticalPanel ui:field="tokenPanel" width="100%" />
+		
+		<div class="{style.subTitle}">Add/Update Token</div>
+		<div class="form-horizontal">
+		  <div class="control-group">
+		    <label class="control-label" >Domain</label>
+		    <div class="controls">
+		      <g:TextBox ui:field="domain" />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" >Token</label>
+		    <div class="controls">
+		      <g:TextBox ui:field="token" />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" >Username</label>
+		    <div class="controls">
+		      <g:TextBox ui:field="username" />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" ></label>
+		    <div class="controls">
+		      <g:Anchor ui:field="addButton" addStyleNames="btn btn-primary">Add/Update Token</g:Anchor>
+		    </div>
+		  </div>
+		</div>
+
+		
+		<g:HTML ui:field="messagePanel" styleName="{style.messagePanel}" />
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 

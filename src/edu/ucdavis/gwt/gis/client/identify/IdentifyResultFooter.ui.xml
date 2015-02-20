@@ -1,0 +1,22 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.spacer {
+			margin: 0 1px;
+			width: 1px;
+			background-color: #cccccc;	
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<div class="row-fluid">
+			<div class="span6" style="text-align:left">
+				<g:Anchor addStyleNames="btn btn-small" ui:field="settings">Settings</g:Anchor>
+			</div>
+			<div class="span6">
+				<g:Anchor addStyleNames="btn btn-small" ui:field="close">Close</g:Anchor>
+				<g:Anchor addStyleNames="btn btn-small btn-primary" ui:field="menu">Menu</g:Anchor>
+			</div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

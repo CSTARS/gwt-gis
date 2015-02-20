@@ -1,0 +1,41 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.showLayer {
+			display:none
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<div style="font-size:11px;color:#888;font-style:italic">
+			The identify tool allows you to access attributes of individual geometries by clicking on the map,
+			drawing a bounding box on the map or by adding a layer whos geometry can be used to intersect 
+			an underlying layers geometry.
+		</div>
+		
+		<div class="row-fluid" style="margin:10px 0">
+		    <div class="span5" style="text-align:center"><g:CheckBox ui:field="enable">Enable</g:CheckBox></div>
+		    <div class="span7" >
+		    	Identify by: 
+		    	<g:ListBox ui:field="queryType" width="160px">
+		    		<g:item value="point">Point Query</g:item>
+		    		<g:item value="box">Bounding Box</g:item>
+		    	</g:ListBox><br />
+		    </div>
+		</div>
+		
+		<div ui:field="layerSelector" style="display:none;border-top:1px solid #ddd;font-size:16px;padding:10px 0">
+			<div class="row-fluid">
+				<div class="span6">
+					<div>Select Intersect Layer</div>
+				</div>
+				<div class="span6" style="text-align:right">
+					<g:CheckBox ui:field="showLayer" visible="false">Show Intersect Layer</g:CheckBox>
+				</div>
+			</div>
+			
+			<g:SimplePanel ui:field="carouselRoot"></g:SimplePanel>
+		</div>
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 

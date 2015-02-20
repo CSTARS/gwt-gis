@@ -1,0 +1,12 @@
+{
+  "name": "myfireplan-node-server",
+  "description": "Node server for proxy, csv creation and saved maps",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "request": "*",
+    "csv": "*",
+    "passport":"*",
+    "node-uuid":"*"
+  }
+}

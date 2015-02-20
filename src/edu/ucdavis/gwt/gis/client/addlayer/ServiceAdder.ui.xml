@@ -1,0 +1,160 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:ucd="urn:import:edu.ucdavis.gwt.gis.client.extras">
+	
+	<ui:with field='resource' type='edu.ucdavis.gwt.gis.client.resources.GadgetResources'/>
+	
+	<ui:style>
+		.layerBackButton {
+			cursor: pointer;	
+		}
+		.serviceUrl {
+			padding: 2px;
+			margin: 2px;
+			border: 1px solid #eeeeee;
+			background-color: #f8f8f8;
+			border-radius: 4px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			width: 100%;
+		}
+		.textInput {
+			margin : 5px !important;
+		}	
+		.textInput:focus {
+			border: 1px solid #2278da;
+			box-shadow: 1px 1px 2px #aaaaaa inset;
+			-moz-box-shadow: 1px 1px 2px #aaaaaa inset;
+			-webkit-box-shadow: 1px 1px 2px #aaaaaa inset;
+		}
+		.title {
+			font-size: 15px;
+			color: #444444;	
+			margin-bottom: 5px;
+		}
+		.cLocationPanel {
+			border-bottom: 1px solid #eeeeee;
+			margin: 15px 0 5px 0;	
+			color: #888888;
+		}
+		.description {
+			overflow:hidden;
+			color: #888888;
+			padding: 0 5px;
+			font-size:12px
+		}
+		.layerAddPanel {
+			margin-top: 15px;
+			border-bottom : 1px solid #ccc;
+		}
+		.titleInput {
+			margin-bottom: 5px;
+			width: 100%;	
+		}
+		.search {
+			cursor: pointer;
+			margin-left: 10px;
+			border: 1px transparent solid;
+			transition: border-color 500ms linear;
+			-webkit-transition: border-color 500ms linear;
+			-moz-transition: border-color 500ms linear;
+			border-radius: 4px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+		}
+		.search:hover {
+			cursor: pointer;
+			margin-left: 10px;
+			border: 1px #eeeeee solid;
+			border-radius: 4px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+		}
+		.close {
+			cursor: pointer;	
+		}
+		.errorPanel {
+			background-color: #ffebe8;
+			border: 1px solid #dd3c10;
+			color: #333333;
+			padding: 5px;
+			margin: 10px 2px 0 2px;
+			border-radius: 4px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+		}
+		.tokenPanel {
+			padding: 10px 0 0 5px;	
+		}
+		.tokenPanel td {
+			color: #888888;
+		}
+		.directoryPanelScrollPanel {
+			transition: height 300ms ease-out;
+			-moz-transition: height 300ms ease-out;
+			-webkit-transition: height 300ms ease-out;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+	
+		<div class="well well-small">
+			Service URL:&nbsp;&nbsp;&nbsp;
+			<g:TextBox ui:field="input"  styleName="input-medium search-query" />
+			<g:Anchor ui:field="search"  styleName="btn" ></g:Anchor>
+			<i ui:field="loading" class="icon-spinner icon-spin pull-right" ></i>
+		</div>
+			
+		
+		<!-- Navigation Panel  -->
+		<g:VerticalPanel ui:field="navigationPanel" width="100%">
+			<g:HorizontalPanel ui:field="cLocationPanel" width="100%" styleName="{style.cLocationPanel}"></g:HorizontalPanel>
+			<g:VerticalPanel ui:field="directoryPanel" />
+		</g:VerticalPanel>
+
+			
+		<!-- Layer Select Panel -->
+		<div ui:field="layerPanel" styleName="{style.layerAddPanel}">
+			<div style="height:30px">
+				<g:Anchor ui:field="layerBackButton" addStyleNames="{style.layerBackButton} pull-right">Back</g:Anchor>
+			</div>
+		
+			<div class="row-fluid">
+				<div class="span6">
+					<div>
+						Title: <g:TextBox ui:field="title"  width="200px"></g:TextBox>
+					</div>
+					<div>
+						Description: 
+						<g:HTML ui:field="description"  styleName="{style.description}"></g:HTML>
+					</div>
+				</div>
+				<div class="span6">
+					<g:SimplePanel ui:field="preview" styleName="pull-right"/>
+					
+				</div>
+			</div>
+		
+			<div class="row-fluid" style="margin-top:10px">
+				<div class="span6">
+					Opacity:&nbsp;&nbsp;&nbsp;<ucd:SimpleOpacitySelector ui:field="opacityInput"></ucd:SimpleOpacitySelector>
+				</div>
+				<div class="span6" style="text-align:center">
+					<!-- TODO -->
+					<!-- <g:CheckBox text="Add Layer as Basemap"  ui:field="addBasemapCheckbox" styleName="pull-right"/>  -->
+					
+					
+					<g:Anchor addStyleNames="btn btn-primary pull-right" ui:field="addLayerButton">Add Layer</g:Anchor>
+				</div>
+			</div>	
+		</div>
+			
+		<g:HTML ui:field="errorPanel" styleName="{style.errorPanel}"></g:HTML>
+	
+		<g:HorizontalPanel styleName="{style.tokenPanel}">
+			<g:HTML>Adding a secure service?  Visit the&nbsp;</g:HTML>
+			<g:Anchor ui:field="tokenManager">Token Manager</g:Anchor>
+		</g:HorizontalPanel>
+
+	</g:HTMLPanel>
+</ui:UiBinder> 

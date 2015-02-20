@@ -1,0 +1,92 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:u="urn:import:edu.ucdavis.gwt.gis.client.extras">
+	<ui:style>
+		.title{
+			text-align: center;
+			color: #333333;
+			font-size: 18px;
+			padding: 10px;
+		}
+		.close {
+			float:right;	
+		}
+		.optionPanel {
+			padding: 5px;	
+		}
+		.legendSelect {
+			margin: 5px;
+			
+			transition: all 350ms ease-out;
+			-moz-transition: all 350ms ease-out;
+			-webkit-transition: all 350ms ease-out;
+			-ms-transition: all 350ms ease-out;
+			-o-transition: all 350ms ease-out;
+		}
+		.legendSelectInner {
+			padding: 5px;	
+		}
+		.selectMessage {
+			color: #888888;
+			font-style: italic;	
+		}
+	</ui:style>
+	<g:HTMLPanel>
+	
+	    <g:HTML ui:field="message" />
+	    
+		<div class="form-horizontal">
+		  <div class="control-group" ui:field="titleControl">
+            <label class="control-label" >Title</label>
+            <div class="controls">
+              <g:TextBox ui:field="title" styleName="searchTextBox" />
+            </div>
+          </div>
+		  <div class="control-group" ui:field="layoutControl">
+		    <label class="control-label" >Layout</label>
+		    <div class="controls">
+		      <g:ListBox ui:field="layout" />
+		    </div>
+		  </div>
+		  <div class="control-group" ui:field="formatControl">
+            <label class="control-label" >Format</label>
+            <div class="controls">
+              <g:ListBox ui:field="format" />
+            </div>
+          </div>
+		  <div class="control-group">
+		    <label class="control-label" >Map Height </label>
+		    <div class="controls">
+		      <g:TextBox ui:field="height" width="50px" />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" >Map Width </label>
+		    <div class="controls">
+		      <g:TextBox ui:field="width" width="50px" />
+		    </div>
+		  </div>
+		  <div class="control-group" ui:field="legendControl">
+		    <label class="control-label" >
+		    	<g:CheckBox ui:field="showLegend">Include Legend</g:CheckBox>
+		    </label>
+		    <div class="controls">
+		      <g:HTML styleName="{style.selectMessage}" ui:field="legendMessage">&nbsp;Select which legends to include</g:HTML>
+		      <g:FlowPanel ui:field="extraOptions">
+		          <g:SimplePanel addStyleNames="well well-small">
+		            <g:ScrollPanel ui:field="legendSelectSp" styleName="{style.legendSelect}" >
+                        <g:VerticalPanel ui:field="legends" styleName="{style.legendSelectInner}" />
+                    </g:ScrollPanel>
+		          </g:SimplePanel>
+			  </g:FlowPanel>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		
+		
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 

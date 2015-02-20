@@ -1,0 +1,26 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:gis="urn:import:edu.ucdavis.gwt.gis.client.extras">
+	<ui:style>
+		.selectPanel {
+			margin: 15px 10px;	
+		}
+		.warningMessage {
+			font-style: italic;
+			color: #888888;
+			padding: 20px;
+			font-size: 11px;
+		}
+	</ui:style>
+	
+	<g:HTMLPanel>
+		
+		<g:HTML ui:field="messagePanel" />
+		
+		<g:FlowPanel ui:field="mapsPanel" />
+		
+		<g:HTML ui:field="warningMessage"  styleName="{style.warningMessage}"/>
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 

@@ -1,0 +1,77 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:gis="urn:import:edu.ucdavis.gwt.gis.client.extras">
+	<ui:style>
+
+		.or {
+			margin: 5px 0 10px 0;
+			font-size: 16px;
+			color: #333333;
+			text-align: center;
+			border-bottom : 1px solid #ddd;
+			height:1px;
+		}
+		.publicPanel {
+			padding: 3px;
+			border-top: 1px solid #eeeeee;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<div class="form-horizontal" ui:field="loginPanel">
+		  <div class="control-group">
+		    <label class="control-label" >Username</label>
+		    <div class="controls">
+		      <g:TextBox ui:field="username"  />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" >Password</label>
+		    <div class="controls">
+		      <g:PasswordTextBox ui:field="password" />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" ></label>
+		    <div class="controls">
+		      <g:Anchor ui:field="login" addStyleNames="btn" >Login</g:Anchor>
+		    </div>
+		  </div>
+		</div>
+
+
+		<div ui:field="selectPanel">
+			<g:HTML ui:field="selectMapTitle" />
+			<g:VerticalPanel ui:field="mapList" spacing="5"/>
+			<g:Anchor ui:field="logout" addStyleNames="btn" >Logout</g:Anchor>
+		</div>
+
+		<g:HTML ui:field="message" />
+		
+		<div>
+			<div class="{style.or}">&nbsp;</div>
+			<div class="form-horizontal">
+			  <div class="control-group">
+			    <label class="control-label" ></label>
+			    <div class="controls">
+			      Load public ArcGIS map
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" >Map ID</label>
+			    <div class="controls">
+			      <g:TextBox ui:field="publicMapId" />
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" ></label>
+			    <div class="controls">
+			      <g:Anchor ui:field="loadFromId" addStyleNames="btn" >Load Public Map</g:Anchor>
+			    </div>
+			  </div>
+			</div>			
+		</div>
+
+
+	</g:HTMLPanel>
+</ui:UiBinder> 

@@ -1,0 +1,91 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:ucd="urn:import:edu.ucdavis.gwt.gis.client.extras"
+	xmlns:dd="urn:import:edu.ucdavis.gwt.gis.client.dandd">
+	
+	<ui:style>
+		.content {
+			overflow: hidden;
+			height: 0px;
+		}
+		.headerTable {
+			padding: 6px 3px 0px 3px;
+			border-collapse : seperate;
+		}
+		.innerTable {
+			border-collapse : seperate;
+		}
+		.innerTable td {
+			padding : 0 5px;
+		}
+		.outerTable {
+			width : 100%;
+			margin-top : 5px;
+		}
+		.contentList {
+			width: 100%;
+		}
+		.opacity {
+			font-size: 10px;
+			color: #666666;
+		}
+		.layerTitle {
+		    overflow: hidden;
+		    white-space: nowrap;
+		    width: 95px;
+		    text-shadow: 1px 1px white;
+		}
+        .dragIcon {
+            padding: 1px 6px;
+            margin-top: 3px;
+            margin-left: -1px;
+            display: inline-block;
+            color: #aaa;
+            cursor: move;
+            border-radius: 0 3px 3px 0;
+            text-shadow: 0 0 1px white;
+        }
+        .dragIcon:hover {
+            text-decoration : none;
+            color: #888;
+            background-color: #ddd;
+        }
+	</ui:style>
+	
+	<ui:with field='res' type='edu.ucdavis.gwt.gis.client.resources.GadgetResources'/>
+	
+	<g:HTMLPanel>
+		
+		<div class="{res.css.legendPanelHeader}" ui:field="header">
+			<!-- using table, this stuff needs to stay somewhat on level -->
+			<table style="width:100%">
+				<tr>
+				    <td style=''>
+				         <dd:EventPanel ui:field="dragIcon" styleName="{style.dragIcon}" title="Move"></dd:EventPanel>
+				    </td>
+					<td style='padding: 2px 0 0 0'>
+						<g:Anchor ui:field="expandIcon" addStyleNames="LayerPanelExpandIcon btn btn-small" title="Show/Hide Legend"></g:Anchor>
+					</td>
+					<td><g:HTML ui:field="layerName" styleName="{style.layerTitle}"></g:HTML></td>
+					<td align="right" style='padding: 4px 5px 0 0'>
+						<g:Anchor ui:field="visibilityCheckBox" styleName="btn visibility-btn" title="Turn Layer On/Off"></g:Anchor>
+						<g:Anchor ui:field="layerMenuBtn" styleName="btn" title="Layer Menu" ></g:Anchor>
+					</td>
+				</tr>
+			</table>
+		</div>
+	
+	
+		<g:FlowPanel>
+			
+			<!-- CONTENT -->
+			<g:SimplePanel ui:field="content" styleName="LayerPanelContent">
+				<g:VerticalPanel ui:field="contentList" styleName="{style.contentList}"></g:VerticalPanel>			
+			</g:SimplePanel>
+		
+		</g:FlowPanel>
+	
+	</g:HTMLPanel>
+	
+</ui:UiBinder> 

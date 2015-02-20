@@ -1,0 +1,52 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.important {
+			font-weight: bold;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+	    
+	    <div style="font-size: 11px;font-style:italic;color: #888">
+	        Use <a href="http://drive.google.com" target="_blank">Google Drive</a> to save and load your maps from anywhere!<br /><br />
+	        If you wish to generate a link to share this map, first save the map to Drive.  Then click 'Share Map' and in the 'Who has access'
+	        list, change 'Private' to 'Public' and a url will be generated for you.
+	    </div>
+	    
+	    <div ui:field="signin" style="padding:20px;display:none">
+	        <g:Button addStyleNames="btn btn-primary" ui:field="signinBtn" >Sign in to Google Drive</g:Button>
+	    </div>
+	    
+	    <div ui:field="content" style="display:none">
+	         
+	        <div style='display:none;margin:15px 0' ui:field="outerLoadedMapPanel">
+	            <g:FlowPanel ui:field="loadedMapPanel"></g:FlowPanel>
+	        </div>
+	        
+	         <div class="well" style="padding:10px">
+	         	<table>
+	         	    <tr>
+	         	        <td>Title: </td>
+	         	        <td><g:TextBox ui:field="savemapInput"></g:TextBox></td>
+	         	    </tr>
+	         	    <tr>
+	         	        <td>Description: </td>
+	         	        <td><g:TextArea ui:field="savemapDescription"></g:TextArea></td>
+	         	    </tr>
+	         	    <tr>
+	         	        <td colspan="2"><g:Button ui:field="savemapBtn" addStyleNames="btn"><i class='icon-save'></i> Save as New Map</g:Button></td>
+	         	    </tr>
+	         	</table>
+	        </div>
+	        
+	        <div style="padding:10px;">
+	            <b>Your Maps on Google Drive</b><br />
+	        	<g:VerticalPanel ui:field="mapsList"></g:VerticalPanel>
+	        </div>
+	       
+	    </div>
+
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 

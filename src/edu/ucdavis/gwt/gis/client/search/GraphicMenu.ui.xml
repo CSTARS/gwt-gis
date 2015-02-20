@@ -1,0 +1,19 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.important {
+			font-weight: bold;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:HTML ui:field="label"></g:HTML>
+		<br />
+		<div class="input-group colorpicker-component my-colorpicker-control" data-color="rgb(255, 146, 180)" data-color-format="rgb" ui:field="cp">
+            <input type="text" value="" readonly="readonly" class="form-control" />
+            <span class="input-group-addon"><i style="background-color: rgb(255, 146, 180)"></i></span>
+        </div>
+		<br />
+		<g:Anchor ui:field="deleteBtn" addStyleNames="btn btn-danger" ></g:Anchor>
+	</g:HTMLPanel>
+</ui:UiBinder> 

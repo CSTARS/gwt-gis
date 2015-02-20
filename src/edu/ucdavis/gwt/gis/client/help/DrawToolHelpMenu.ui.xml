@@ -1,0 +1,19 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+        .snippet {
+            padding: 5px 15px 20px 20px;
+            color : #888;
+            font-size: 12px;
+        }
+        .link {
+            cursor: pointer;
+        }
+	</ui:style>
+	<g:HTMLPanel>
+		This is the help for the top draw tool.
+	    
+	    
+	</g:HTMLPanel>
+</ui:UiBinder> 

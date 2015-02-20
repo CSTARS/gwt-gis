@@ -1,0 +1,179 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:c="urn:import:edu.ucdavis.gwt.gis.client.draw" xmlns:h="urn:import:com.gargoylesoftware.htmlunit.html">
+	<ui:style>
+		.hidePanel {
+			overflow: hidden;	
+			width: 530px;
+		}
+		.controlButtons {
+			color: #2278DA;
+			cursor: pointer;
+			padding:  3px;
+		}
+		.title {
+			color: #444444;
+			font-size: 16px;
+			padding: 0px 5px;	
+		}
+		.label {
+			color: #444444;
+			padding: 2px;	
+		}
+		.addAttributesTitle {
+			color: #444444;
+			font-size: 14px;
+			padding: 0 0 5px 0;
+		}
+		.currentAttributes {
+			margin: 10px;
+			width: 260px;
+		}
+		.addAttributePanel {
+			margin-top: 5px;
+			padding: 5px;
+			background-color: #f8f8f8;
+			border: 1px solid #eeeeee;
+			border-radius: 6px;
+			-moz-border-radius: 6px;
+			-webkit-border-radius: 6px;
+			width: 100%;
+		}
+		.buttonPanel {
+			border-bottom: 1px solid #eeeeee;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+		.stylePanel {
+			padding-left: 25px;
+			color: #888888;	
+		}
+		.stylePanelTitle {
+			color: #444444;
+			font-weight: bold;	
+		}
+		.lineStylePanel {
+			padding-left: 5px;	
+		}
+		.fillStylePanel {
+			padding: 5px 0 0 5px;	
+		}
+		.collection {
+			padding: 0 0 5px 10px;
+			color: #666666;	
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		
+		<g:HTML addStyleNames="{style.controlButtons} pull-right" ui:field="zoomTo" >Zoom To</g:HTML>
+		
+		<g:HTML ui:field="collectionName" styleName="{style.collection}"></g:HTML>
+		
+		<g:HorizontalPanel styleName="{style.buttonPanel}">
+			<g:Cell width="50%">
+				<g:HTML ui:field="attributesButton" styleName="{style.controlButtons}" >Attributes</g:HTML>
+			</g:Cell>
+			<g:Cell width="50%">
+				<g:HTML ui:field="styleButton" styleName="{style.controlButtons}" >Style</g:HTML>
+			</g:Cell>
+		</g:HorizontalPanel>
+		
+		<g:SimplePanel styleName="{style.hidePanel}">
+			<g:HorizontalPanel ui:field="hidePanel" styleName="EditFeaturesPanel-attributes">
+				<g:SimplePanel width="530px">
+				
+					<g:VerticalPanel ui:field="attributesPanel" width="100%">
+						<g:HorizontalPanel>
+							<g:HTML styleName="{style.label}">Name&nbsp;</g:HTML>
+							<g:TextBox ui:field="name" />
+						</g:HorizontalPanel>
+
+						<g:VerticalPanel ui:field="attributes" width="100%"/>
+						
+						<g:FlowPanel styleName="well">
+							
+							<g:HorizontalPanel>
+								<g:HTML styleName="{style.label}">Name&nbsp;</g:HTML>
+								<g:TextBox ui:field="newAttributeName" width="100px" />
+							</g:HorizontalPanel>
+							<g:HorizontalPanel>
+								<g:HTML styleName="{style.label}">Value&nbsp;</g:HTML>
+								<g:TextArea ui:field="newAttributeValue" width="220px" />
+							</g:HorizontalPanel>
+							
+							<g:HTML styleName="btn btn-primary" ui:field="addAttributeButton">Add Attribute</g:HTML>
+						</g:FlowPanel>
+						
+					</g:VerticalPanel>
+				
+				</g:SimplePanel>
+				<g:FlowPanel width="530px">
+				
+					
+					<g:VerticalPanel ui:field="pointStylePanel">
+						<g:HTML styleName="{style.stylePanelTitle}">Point Style</g:HTML>
+						<g:HTMLPanel styleName="{style.stylePanel}">
+							<table>
+								<tr>
+									<td>Style&nbsp;</td>
+									<td><g:ListBox ui:field="pointStyleInput" /></td>
+								</tr>
+								<tr>
+									<td>Size&nbsp;</td>
+									<td><g:TextBox ui:field="pointSizeInput" width="30px" /></td>
+								</tr>
+								<tr>
+									<td>Color&nbsp;</td>
+									<td><g:TextBox ui:field="pointColorInput" width="70px" /></td>
+								</tr>
+							</table>
+						</g:HTMLPanel>
+					</g:VerticalPanel>
+					
+					<g:VerticalPanel ui:field="lineStylePanel" styleName="{style.lineStylePanel}">
+						<g:HTML styleName="{style.stylePanelTitle}">Line Style</g:HTML>
+						<g:HTMLPanel styleName="{style.stylePanel}">
+							<table>
+								<tr>
+									<td>Width&nbsp;</td>
+									<td><g:ListBox ui:field="lineWidthInput" /></td>
+								</tr>
+								<tr>
+									<td>Style&nbsp;</td>
+									<td><g:ListBox ui:field="lineStyleInput" /></td>
+								</tr>
+								<tr>
+									<td>Opacity&nbsp;</td>
+									<td><g:HTML ui:field="lineOpacity" styleName="{style.controlButtons}" width="40px" /></td>
+								</tr>
+								<tr>
+									<td>Color&nbsp;</td>
+									<td><g:TextBox ui:field="lineColorInput"  width="70px" /></td>
+								</tr>
+							</table>
+						</g:HTMLPanel>
+					</g:VerticalPanel>
+					
+					<g:VerticalPanel ui:field="fillStylePanel" styleName="{style.fillStylePanel}">
+						<g:HTML styleName="{style.stylePanelTitle}">Fill Style</g:HTML>
+						<g:HTMLPanel styleName="{style.stylePanel}">
+							<table>
+								<tr>
+									<td>Opacity&nbsp;</td>
+									<td><g:HTML ui:field="fillOpacity" styleName="{style.controlButtons}" width="40px" /></td>
+								</tr>
+								<tr>
+									<td>Color&nbsp;</td>
+									<td><g:TextBox ui:field="fillColorInput" width="70px" /></td>
+								</tr>
+							</table>
+						</g:HTMLPanel>
+					</g:VerticalPanel>
+				
+				</g:FlowPanel>
+			</g:HorizontalPanel>
+		</g:SimplePanel>
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 
