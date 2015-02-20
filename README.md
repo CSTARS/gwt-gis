@@ -24,6 +24,7 @@ public class MyMaps implements EntryPoint {
    	}
 }
 ```
+[More complex example.](https://github.com/CSTARS/ceres-maps)
 
 ## GWT-GIS Config
 The GisClient will look for a javascript object in the window scope call mapConfig.  You can access the config file in your app at any time by using:
