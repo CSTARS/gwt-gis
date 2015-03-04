@@ -30,7 +30,6 @@ import edu.ucdavis.cstars.client.event.MapLoadHandler;
 import edu.ucdavis.cstars.client.geometry.Geometry;
 import edu.ucdavis.cstars.client.geometry.Point;
 import edu.ucdavis.cstars.client.layers.LOD;
-
 import edu.ucdavis.gwt.gis.client.arcgiscom.ArcGisImportPanel;
 import edu.ucdavis.gwt.gis.client.config.BasemapConfig;
 import edu.ucdavis.gwt.gis.client.config.GadgetConfig;
@@ -168,17 +167,25 @@ public class GisClient {
 	 * @param loadHandler - handler to fire when client is ready
 	 */
 	public void load(final GisClientLoadHandler loadHandler) {
-	    // IE sucks so much, delay to load, make sure the page is ready
-	    if( isIE7 || isIE8 ) {
-	        new Timer() {
-                @Override
-                public void run() {
-                    _load(loadHandler);
-                }
-	        }.schedule(2000);
-	    } else {
-	        _load(loadHandler);
-	    }
+		ResourceLoader.injectRootScripts(new Runnable(){
+			@Override
+			public void run() {
+				// add 3rd party js and css
+				ResourceLoader.inject();
+				
+				// IE sucks so much, delay to load, make sure the page is ready
+			    if( isIE7 || isIE8 ) {
+			        new Timer() {
+		                @Override
+		                public void run() {
+		                    _load(loadHandler);
+		                }
+			        }.schedule(2000);
+			    } else {
+			        _load(loadHandler);
+			    }
+			}
+		});
 	}
 	
 	private void _load(GisClientLoadHandler loadHandler) {

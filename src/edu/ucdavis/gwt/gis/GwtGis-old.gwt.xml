@@ -9,21 +9,21 @@
 
   <stylesheet src="http://js.arcgis.com/3.8/js/esri/css/esri.css" />
   
-  <!-- You need to include this in your dev .html file
+  <!-- broken in android, attempting hack -->
   <script src="http://js.arcgis.com/3.8/" />
+  <!-- <script src="js/esri_3_4_patch.js" /> -->
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://apis.google.com/js/client.js?onload=ginit"></script>
   <script src="js/bootstrap.min.js" />
-  <stylesheet src="css/idangerous.swiper.css" /> 
-  <script src="js/idangerous.swiper-1.9.min.js"></script>
-  <script src="js/jquery.esriPreview.js"></script>
-  -->
 
   <stylesheet src='GwtGisClient.css'></stylesheet>
   <stylesheet src='css/bootstrap.min.css'></stylesheet>
   <stylesheet src='css/bootstrap-responsive.min.css'></stylesheet>
   <stylesheet src='css/font-awesome.css'></stylesheet>
   
-
+  <stylesheet src="css/idangerous.swiper.css" /> 
+  <script src="js/idangerous.swiper-1.9.min.js"></script>
+  <script src="js/jquery.esriPreview.js"></script>
 	
 </module>

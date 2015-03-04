@@ -140,7 +140,7 @@ public class MapEventStatusHandler  {
 	 * @param mw
 	 */
 	public void setMap(MapWidget mw){
-		loadingText.setHTML("Initializing Map...");
+		loadingText.setHTML("<i class='fa fa-spinner fa-spin'></i> Initializing Map...");
 		
 		map = mw;
 		

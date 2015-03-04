@@ -3,6 +3,10 @@
 	display : none !important;
 }
 
+[class^="icon-"], [class*=" icon-"] {
+	background-image: none !important;
+}
+
 /** Add css rules here for your application. */
 body {
 	-webkit-perspective : 1000px;
