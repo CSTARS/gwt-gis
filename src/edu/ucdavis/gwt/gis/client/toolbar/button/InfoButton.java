@@ -35,7 +35,7 @@ public class InfoButton extends ToolbarItem {
 	
 	@Override
 	public String getIcon() {	
-		return "<i class='icon-info-sign'></i>";
+		return "<i class='fa fa-info-circle'></i>";
 	}
 
 	@Override

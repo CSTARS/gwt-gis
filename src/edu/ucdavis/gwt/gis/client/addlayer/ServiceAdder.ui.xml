@@ -102,7 +102,7 @@
 			Service URL:&nbsp;&nbsp;&nbsp;
 			<g:TextBox ui:field="input"  styleName="input-medium search-query" />
 			<g:Anchor ui:field="search"  styleName="btn" ></g:Anchor>
-			<i ui:field="loading" class="icon-spinner icon-spin pull-right" ></i>
+			<i ui:field="loading" class="fa fa-spinner fa-spin pull-right" ></i>
 		</div>
 			
 		

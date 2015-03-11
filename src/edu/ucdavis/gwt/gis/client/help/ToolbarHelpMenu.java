@@ -22,7 +22,7 @@ public class ToolbarHelpMenu extends BootstrapModalLayout {
 
     @Override
     public String getTitle() {
-        return "<i class='icon-question-sign'></i> Top Toolbar Help";
+        return "<i class='fa  fa-question-circle'></i> Top Toolbar Help";
     }
 
     @Override

@@ -31,7 +31,7 @@ public class BaseMapButton extends ToolbarItem {
 
 	@Override
 	public String getIcon() {
-		return "<i class='icon-picture'></i>";
+		return "<i class='fa fa-picture-o'></i>";
 	}
 
 

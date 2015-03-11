@@ -190,7 +190,7 @@ public class IdentifyResult extends BootstrapModalLayout {
 			if( parts.length > 0 && allowedFormat( parts[parts.length-1] ) ) {  
 				link += "<img src='"+text+"' /><br />";
 			}
-			link += "<a href='"+text+"' target='_blank' name='"+text+"' style='white-space:nowrap'><i class='icon-link'></i> Link</a>";
+			link += "<a href='"+text+"' target='_blank' name='"+text+"' style='white-space:nowrap'><i class='fa fa-link'></i> Link</a>";
 			return link;
 		}
 		return text;
@@ -211,7 +211,7 @@ public class IdentifyResult extends BootstrapModalLayout {
 	}-*/;
 	
 	private native void _setTable(Element ele, String title, String table, String url, IdentifyResult ir, String exportUrl) /*-{
-		var exportBtn = $wnd.$('<div style="height:45px">'+title+' <br /><i class="icon-download-alt"></i> <a class="d-kml">kml</a> - <a class="d-shape">shapefile</a> - <a class="d-csv">csv</a> </div>');
+		var exportBtn = $wnd.$('<div style="height:45px">'+title+' <br /><i class="fa fa-download"></i> <a class="d-kml">kml</a> - <a class="d-shape">shapefile</a> - <a class="d-csv">csv</a> </div>');
 		exportBtn.find('.d-csv').on('click', function(){
 			var tables = ir.@edu.ucdavis.gwt.gis.client.identify.IdentifyResult::currentTableData;
 			if( tables[title] ) {

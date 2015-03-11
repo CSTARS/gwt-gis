@@ -40,7 +40,7 @@ public class Toolbar extends Control {
 	private SimplePanel searchBoxPanel = new SimplePanel();
 	
 	private ToolbarPopupMenu popupMenu = new ToolbarPopupMenu("Actions");
-	private Anchor popupMenuButton = new Anchor("<i class='icon-reorder'></i><span class='hidden-phone'> Menu</span>", true);
+	private Anchor popupMenuButton = new Anchor("<i class='fa fa-reorder'></i><span class='hidden-phone'> Menu</span>", true);
 	
 	@UiField FlowPanel menuPanel;
 	@UiField FlowPanel statusPanel;
@@ -62,7 +62,7 @@ public class Toolbar extends Control {
 			getElement().getStyle().setProperty("borderBottom", "1px solid #aaaaaa");
 		}
 		
-		navExpandBtn.setHTML("<i class='icon-double-angle-left'></i>");
+		navExpandBtn.setHTML("<i class='fa fa-angle-double-left'></i>");
 		navExpandBtn.addClickHandler(new ClickHandler(){
 			@Override
 			public void onClick(ClickEvent event) {

@@ -9,7 +9,7 @@ public class IdentifyButton extends ToolbarItem {
 		
 	@Override
 	public String getIcon() {
-		return "<i class='icon-info'></i>";
+		return "<i class='fa fa-info'></i>";
 	}
 
 	@Override

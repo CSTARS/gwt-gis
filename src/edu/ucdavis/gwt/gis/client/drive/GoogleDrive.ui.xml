@@ -35,7 +35,7 @@
 	         	        <td><g:TextArea ui:field="savemapDescription"></g:TextArea></td>
 	         	    </tr>
 	         	    <tr>
-	         	        <td colspan="2"><g:Button ui:field="savemapBtn" addStyleNames="btn"><i class='icon-save'></i> Save as New Map</g:Button></td>
+	         	        <td colspan="2"><g:Button ui:field="savemapBtn" addStyleNames="btn"><i class='fa fa-save'></i> Save as New Map</g:Button></td>
 	         	    </tr>
 	         	</table>
 	        </div>

@@ -146,7 +146,7 @@ public class SearchBox extends TextBox {
     }
 
     private void search(String searchTxt) {
-        resultsPopup.add(new HTML("<i class='icon-spinner icon-spin'></i> Searching '"+searchTxt+"'... "));
+        resultsPopup.add(new HTML("<i class='fa fa-spinner fa-spin'></i> Searching '"+searchTxt+"'... "));
         resultsPopup.show();
         if( currentQuery != null ) currentQuery.cancel();
         
@@ -173,7 +173,7 @@ public class SearchBox extends TextBox {
     
     private HTML createResultBtn(final SearchResult r) {
         HTML btn = new HTML("<div style='cursor:pointer'>"+
-                (r.center == null ? "<i class='icon-check-empty' style='color:blue'></i> " : "<i class='icon-map-marker' style='color:blue'></i> ")+
+                (r.center == null ? "<i class='fa fa-square-o' style='color:blue'></i> " : "<i class='fa fa-map-marker' style='color:blue'></i> ")+
                 r.name+" <span>"+
                 (r.center == null ? "Boundary" : "Point")
                 +"</span></div>"); 

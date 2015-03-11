@@ -10,7 +10,7 @@ public class LoadButton extends ToolbarItem {
 
 	@Override
 	public String getIcon() {	
-		return "<i class='icon-hdd'></i>";
+		return "<i class='fa fa-hdd-o'></i>";
 	}
 
 	@Override

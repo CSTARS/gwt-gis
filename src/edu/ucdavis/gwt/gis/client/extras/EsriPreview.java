@@ -40,7 +40,7 @@ public class EsriPreview extends Composite {
 	private String url = "";
 	private SimplePanel panel = new SimplePanel();
 	private Image img = null;
-	private HTML loadingIcon = new HTML("<i class='icon-spinner icon-spin'></i>");
+	private HTML loadingIcon = new HTML("<i class='fa fa-spinner fa-spin'></i>");
 	private FlowPanel canvas = new FlowPanel();
 
 	private int width = 0;

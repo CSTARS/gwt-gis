@@ -13,7 +13,7 @@ public class AddShapefileButton extends ToolbarItem {
 
 	@Override
 	public String getIcon() {
-		return "<i class='icon-upload-alt'></i>";
+		return "<i class='fa fa-upload'></i>";
 	}
 
 	@Override

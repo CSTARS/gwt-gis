@@ -12,7 +12,7 @@ public class DrawToolButton extends ToolbarItem {
 
 	@Override
 	public String getIcon() {
-		return "<i class='icon-pencil'></i>";
+		return "<i class='fa fa-pencil'></i>";
 	}
 
 	@Override

@@ -10,7 +10,7 @@ public class SaveButton extends ToolbarItem {
 
 	@Override
 	public String getIcon() {	
-		return "<i class='icon-save'></i>";
+		return "<i class='fa fa-save'></i>";
 	}
 
 	@Override

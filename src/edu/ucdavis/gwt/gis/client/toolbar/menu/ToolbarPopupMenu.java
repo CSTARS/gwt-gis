@@ -51,7 +51,7 @@ public class ToolbarPopupMenu extends BootstrapModalLayout {
 
 	@Override
 	public String getTitle() {
-		return "<i class='icon-reorder'></i> Main Menu";
+		return "<i class='fa fa-reorder'></i> Main Menu";
 	}
 
 

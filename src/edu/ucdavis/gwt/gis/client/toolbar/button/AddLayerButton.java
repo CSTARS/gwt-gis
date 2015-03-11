@@ -18,7 +18,7 @@ public class AddLayerButton extends ToolbarItem {
 
 	@Override
 	public String getIcon() {
-		return "<i class='icon-plus'></i>";
+		return "<i class='fa fa-plus'></i>";
 	}
 
 	@Override

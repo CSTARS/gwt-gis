@@ -257,7 +257,7 @@ public class PrintMapPopup extends BootstrapModalLayout {
 	public void print() {
 	    Debugger.INSTANCE.log("Disabling btn");
 		printButton.addStyleName("disabled");
-		printButton.setHTML("<i class='icon-spinner icon-spin'></i> Exporting...");
+		printButton.setHTML("<i class='fa fa-spinner fa-spin'></i> Exporting...");
 	    
 		Debugger.INSTANCE.log("Creating print params");
 		PrintParameters params = PrintParameters.create();

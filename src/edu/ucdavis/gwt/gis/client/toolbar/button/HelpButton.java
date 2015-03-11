@@ -9,7 +9,7 @@ public class HelpButton extends ToolbarItem {
 	
 	@Override
 	public String getIcon() {	
-		return "<i class='icon-question-sign'></i>";
+		return "<i class='fa fa-question-circle'></i>";
 	}
 
 	@Override

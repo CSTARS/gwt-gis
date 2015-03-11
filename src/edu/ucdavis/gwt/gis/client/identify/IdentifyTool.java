@@ -59,7 +59,7 @@ public class IdentifyTool extends BootstrapModalLayout implements MapController 
 	@UiField ListBox queryType;
 	@UiField Element layerSelector;
 
-	private Anchor toolbarIcon = new Anchor("<i class='icon-info'></i>",true);
+	private Anchor toolbarIcon = new Anchor("<i class='fa fa-info-circle'></i>",true);
 	
 	private Graphic intersectGraphic = null;
 	private IdentifyBboxGraphic intersectBboxGraphic = new IdentifyBboxGraphic();
@@ -195,11 +195,11 @@ public class IdentifyTool extends BootstrapModalLayout implements MapController 
 		
 		ele = $wnd.$(ele).html("");
 		var layout = '<table id="IntersectTool-Slider" cellpadding="0" cellspacing="0" width="100%">'+
-						'<tr><td align="left" valign="middle"><i class="icon-circle-arrow-left" style="font-size:36px;cursor:pointer"></i></td>'+
+						'<tr><td align="left" valign="middle"><i class="fa  fa-arrow-circle-left" style="font-size:36px;cursor:pointer"></i></td>'+
 						'<td align="center"><div class="swiper-container">'+
 							'<div class="swiper-wrapper"></div>'+
 					 	'</div></td>'+
-					 	'<td align="right" valign="middle"><i class="icon-circle-arrow-right" style="font-size:36px;cursor:pointer"></i></td><tr></table>';
+					 	'<td align="right" valign="middle"><i class="fa fa-arrow-circle-right" style="font-size:36px;cursor:pointer"></i></td><tr></table>';
 		var selector = $wnd.$(layout);
 
 		console.log(layers);
@@ -242,11 +242,11 @@ public class IdentifyTool extends BootstrapModalLayout implements MapController 
 			
 			it.@edu.ucdavis.gwt.gis.client.identify.IdentifyTool::selector = mySwiper;
 			
-			$wnd.$("#IntersectTool-Slider .icon-circle-arrow-left").on('click', function() {
+			$wnd.$("#IntersectTool-Slider .fa-arrow-circle-left").on('click', function() {
 				mySwiper.swipePrev();
 			});
 			
-			$wnd.$("#IntersectTool-Slider .icon-circle-arrow-right").on('click', function() {
+			$wnd.$("#IntersectTool-Slider .fa-arrow-circle-right").on('click', function() {
 				mySwiper.swipeNext();
 			});
 		}, 500);
@@ -527,7 +527,7 @@ public class IdentifyTool extends BootstrapModalLayout implements MapController 
 		
 		@Override
 		public String getIcon() {
-			return "<i class=\"icon-ellipsis-horizontal\"></i>";
+			return "<i class=\"fa fa-ellipsis-h\"></i>";
 		}
 		
 		@Override

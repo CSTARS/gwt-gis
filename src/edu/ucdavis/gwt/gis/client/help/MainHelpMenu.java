@@ -78,7 +78,7 @@ public class MainHelpMenu extends BootstrapModalLayout {
     
     @Override
     public String getTitle() {
-        return "<i class='icon-question-sign'></i> Help Topics";
+        return "<i class='fa fa-question-circle'></i> Help Topics";
     }
 
     @Override

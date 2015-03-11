@@ -22,7 +22,7 @@ public class LayersHelpMenu extends BootstrapModalLayout {
 
     @Override
     public String getTitle() {
-        return "<i class='icon-question-sign'></i> Layers Menu Help";
+        return "<i class='fa fa-question-circle'></i> Layers Menu Help";
     }
 
     @Override

@@ -59,13 +59,13 @@ public class RootLayout extends Composite {
 				mapPanel.getParent().removeStyleName("openIE");
 				layerPanel.removeStyleName("openIE");
 				layerPanel.addStyleName("IE");
-				btn.setHTML("<i class='icon-double-angle-left'></i>");
+				btn.setHTML("<i class='fa fa-angle-double-left'></i>");
 				
 			} else {
 				mapPanel.getParent().addStyleName("openIE");
 				layerPanel.addStyleName("openIE");
 				layerPanel.removeStyleName("IE");
-				btn.setHTML("<i class='icon-double-angle-right'></i>");
+				btn.setHTML("<i class='fa fa-angle-double-right'></i>");
 				
 			}
 			
@@ -75,11 +75,11 @@ public class RootLayout extends Composite {
 			if( mapPanel.getParent().getStyleName().contains("open") ) {
 				mapPanel.getParent().removeStyleName("open");
 				layerPanel.removeStyleName("open");
-				btn.setHTML("<i class='icon-double-angle-left'></i>");
+				btn.setHTML("<i class='fa fa-angle-double-left'></i>");
 			} else {
 				mapPanel.getParent().addStyleName("open");
 				layerPanel.addStyleName("open");
-				btn.setHTML("<i class='icon-double-angle-right'></i>");
+				btn.setHTML("<i class='fa fa-angle-double-right'></i>");
 			}
 		}
 		

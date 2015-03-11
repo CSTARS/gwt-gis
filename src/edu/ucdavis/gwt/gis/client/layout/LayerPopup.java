@@ -167,7 +167,7 @@ public class LayerPopup extends BootstrapModalLayout {
 		vp.add(getInfo(docInfo.getComments()));
 		
 		// add link url
-		Anchor a = new Anchor("<i class='icon-globe menu-icon'></i>&nbsp;&nbsp;ArcGIS Service Description", true, url, "_blank");
+		Anchor a = new Anchor("<i class='fa fa-globe menu-icon'></i>&nbsp;&nbsp;ArcGIS Service Description", true, url, "_blank");
 		a.setStyleName("menu-link");
 		vp.add(a);
 		
@@ -228,7 +228,7 @@ public class LayerPopup extends BootstrapModalLayout {
 		
 
 		if( email.length() > 0 ) {
-			Anchor a = new Anchor("<i class='icon-envelope menu-icon'></i> Contact - "+author.replaceAll("mailto:",""), true, email);
+			Anchor a = new Anchor("<i class='fa fa-envelope-o menu-icon'></i> Contact - "+author.replaceAll("mailto:",""), true, email);
 			a.setStyleName("menu-link");
 			return a;
 		} else if( author.length() > 0 ) {
@@ -244,7 +244,7 @@ public class LayerPopup extends BootstrapModalLayout {
 	    JsArray<HelpTopicConfig> topics = AppManager.INSTANCE.getConfig().getHelpTopics();
         for( int i = 0; i < topics.length(); i++ ) {
             if( topics.get(i).isLayerMenuHelp() ) {
-                Anchor a = new Anchor("<i class='icon-question menu-icon'></i> Help", true, topics.get(i).getUrl(), "_blank");
+                Anchor a = new Anchor("<i class='fa fa-question menu-icon'></i> Help", true, topics.get(i).getUrl(), "_blank");
                 a.setStyleName("menu-link");
                 return a;
             }
@@ -255,7 +255,7 @@ public class LayerPopup extends BootstrapModalLayout {
 	}
 
 	public Widget getAdvancedButton() {
-		Anchor a = new Anchor("<i class='icon-cogs menu-icon'></i> Advanced Layer Settings", true);
+		Anchor a = new Anchor("<i class='fa fa-cogs menu-icon'></i> Advanced Layer Settings", true);
 		a.setStyleName("menu-link");
 		a.addClickHandler(new ClickHandler(){
 			@Override
@@ -270,7 +270,7 @@ public class LayerPopup extends BootstrapModalLayout {
 	public Widget getOpacityButton() {
 		HorizontalPanel panel = new HorizontalPanel();
 		
-		panel.add(new HTML("<div class='menu-link' style='cursor:pointer'><i class='icon-th-large menu-icon'></i>&nbsp;&nbsp;Opacity</div>"));
+		panel.add(new HTML("<div class='menu-link' style='cursor:pointer'><i class='fa fa-th menu-icon'></i>&nbsp;&nbsp;Opacity</div>"));
 		
 		
 		final ListBox list = new ListBox();
@@ -296,7 +296,7 @@ public class LayerPopup extends BootstrapModalLayout {
 	}
 	
 	public Widget getZoomToButton() {
-		Anchor a = new Anchor("<i class='icon-resize-small menu-icon'></i>&nbsp;&nbsp;Zoom to Layer Extent", true);
+		Anchor a = new Anchor("<i class='fa arrows-alt menu-icon'></i>&nbsp;&nbsp;Zoom to Layer Extent", true);
 		a.setStyleName("menu-link");
 		a.addClickHandler(new ClickHandler(){
 			@Override
@@ -319,7 +319,7 @@ public class LayerPopup extends BootstrapModalLayout {
 	}
 	
 	public Widget getRemoveButton() {
-		Anchor a = new Anchor("<i class='icon-remove-circle menu-icon'></i> Remove Layer", true);
+		Anchor a = new Anchor("<i class='fa times-circle-o menu-icon'></i> Remove Layer", true);
 		a.setStyleName("menu-link");
 		a.addClickHandler(new ClickHandler(){
 			@Override

@@ -404,7 +404,7 @@ public class GoogleDrive extends BootstrapModalLayout {
 	private void addLoadedMapPanelButtons(final String id) {
 		FlowPanel buttonPanel = new FlowPanel();
 		
-		Button share = new Button("<i class='icon-share-sign'></i> Share Map");
+		Button share = new Button("<i class='fa fa-share-alt'></i> Share Map");
 		share.addStyleName("btn");
 		share.addStyleName("btn-primary");
 		share.addStyleName("pull-right");
@@ -416,7 +416,7 @@ public class GoogleDrive extends BootstrapModalLayout {
 		});
 		buttonPanel.add(share);
 		
-		Button save = new Button("<i class='icon-save'></i> Save Map");
+		Button save = new Button("<i class='fa fa-save'></i> Save Map");
 		save.addStyleName("btn");
 		save.addStyleName("btn-primary");
 		save.addClickHandler(new ClickHandler(){

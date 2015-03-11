@@ -988,7 +988,7 @@ public class GisClient {
         
         @Override
         public String getIcon() {
-            return "<i class='icon-cloud'></i>";
+            return "<i class='fa fa-cloud'></i>";
         }
         @Override
         public String getText() {

@@ -37,7 +37,7 @@ import edu.ucdavis.gwt.gis.client.resources.GadgetResources;
 
 public class GeolocateWidget extends Composite {
 	
-	private Anchor icon = new Anchor("<i class='icon-screenshot'></i>",true);
+	private Anchor icon = new Anchor("<i class='fa fa-crosshairs'></i>",true);
 	private Geolocation geolocater = Geolocation.getIfSupported();
 	
 	private Graphic marker = null;

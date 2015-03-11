@@ -9,7 +9,7 @@ public class PrintMapButton extends ToolbarItem {
 	
 	@Override
 	public String getIcon() {
-		return "<i class='icon-print'></i>";
+		return "<i class='fa fa-print'></i>";
 	}
 
 	@Override

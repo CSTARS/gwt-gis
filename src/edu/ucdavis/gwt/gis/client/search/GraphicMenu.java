@@ -29,7 +29,7 @@ public class GraphicMenu extends BootstrapModalLayout {
     public GraphicMenu() {
         panel = uiBinder.createAndBindUi(this);
         
-        deleteBtn.setHTML("<i class='icon-remove'></i> Remove");
+        deleteBtn.setHTML("<i class='fa fa-remove'></i> Remove");
         closeBtn.addClickHandler(new ClickHandler(){
             @Override
             public void onClick(ClickEvent event) {

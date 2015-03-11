@@ -22,7 +22,7 @@ public class DrawToolHelpMenu extends BootstrapModalLayout {
 
     @Override
     public String getTitle() {
-        return "<i class='icon-question-sign'></i> Draw Tool Help";
+        return "<i class='fa fa-question-circle'></i> Draw Tool Help";
     }
 
     @Override

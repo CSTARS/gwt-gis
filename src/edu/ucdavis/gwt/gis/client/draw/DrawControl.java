@@ -422,7 +422,7 @@ public class DrawControl extends Control implements MapController {
 			var btns = $wnd.$(
 				"<div>" +
 					"<div class='btn-group'>" +
-						"<button type='button' style='width:40px;text-align:center' class='btn collections'><i class='icon-th'></i></button>"+
+						"<button type='button' style='width:40px;text-align:center' class='btn collections'><i class='fa fa-th'></i></button>"+
 						"<button type='button' style='text-align:center' class='btn done'>Done</button>"+
 					"</div>" +
 				"</div>"
@@ -457,10 +457,10 @@ public class DrawControl extends Control implements MapController {
 			var btns = $wnd.$(
 				"<div>" +
 					"<div class='btn-group' data-toggle='buttons-radio'>" +
-						"<button type='button' style='width:40px;text-align:center' class='btn select active'><i class='icon-hand-up'></i></button>"+
-						"<button type='button' style='width:40px;text-align:center' class='btn point'><i class='icon-map-marker'></i></button>"+
-						"<button type='button' style='width:40px;text-align:center' class='btn line'><i class='icon-angle-down' style='margin-top:1px'></i><i class='icon-angle-up' style='margin-left:-6px'></i></button>"+
-						"<button type='button' style='width:40px;text-align:center' class='btn polygon'><i class='icon-check-empty'></i></button>"+
+						"<button type='button' style='width:40px;text-align:center' class='btn select active'><i class='fa fa-hand-o-up'></i></button>"+
+						"<button type='button' style='width:40px;text-align:center' class='btn point'><i class='fa fa-map-marker'></i></button>"+
+						"<button type='button' style='width:40px;text-align:center' class='btn line'><i class='fa fa-angle-down' style='margin-top:1px'></i><i class='fa fa-angle-up' style='margin-left:-6px'></i></button>"+
+						"<button type='button' style='width:40px;text-align:center' class='btn polygon'><i class='fa fa-square-o'></i></button>"+
 					"</div>" +
 				"</div>"
 			);
@@ -520,9 +520,9 @@ public class DrawControl extends Control implements MapController {
 				"<div>" +
 					"<div class='description' style='padding:5px;background-color:rgba(255,255,255,.7);white-space:nowrap;border-radius:4px'></div>"+
 					"<div class='btn-group' style='display:none'>" +
-						"<button type='button' style='width:40px;text-align:center' class='btn info'><i class='icon-info-sign'></i></button>"+
+						"<button type='button' style='width:40px;text-align:center' class='btn info'><i class='fa fa-info-circle'></i></button>"+
 						"<button type='button' style='text-align:center' class='btn finished' value='point'>Finished</button>"+
-						"<button type='button' style='width:40px;text-align:center' class='btn trash' value='point'><i class='icon-trash'></i></button>"+
+						"<button type='button' style='width:40px;text-align:center' class='btn trash' value='point'><i class='fa fa-trash'></i></button>"+
 					"</div>" +
 				"</div>"
 			);

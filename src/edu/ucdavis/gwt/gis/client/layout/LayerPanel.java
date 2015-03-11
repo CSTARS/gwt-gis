@@ -99,10 +99,10 @@ public class LayerPanel extends SimplePanel implements UpdateStartHandler, Updat
 
 		updateVisibilityCheckBox();
 		
-		HTML html = new HTML("<i class='icon-resize-vertical'></i>");
+		HTML html = new HTML("<i class='fa fa-arrows-v'></i>");
 		dragIcon.add(html);
-		layerMenuBtn.setHTML("<i class='icon-reorder'></i>");
-		expandIcon.setHTML("<i class='icon-chevron-right'></i>");
+		layerMenuBtn.setHTML("<i class='fa fa-reorder'></i>");
+		expandIcon.setHTML("<i class='fa fa-chevron-right'></i>");
 
 		popup = new LayerPopup(datalayer);
 		initIconEventHandlers();
@@ -338,7 +338,7 @@ public class LayerPanel extends SimplePanel implements UpdateStartHandler, Updat
 			content.setHeight(contentList.getOffsetHeight()+"px");
 			content.getElement().getStyle().setOpacity(1);
 			if( GisClient.isIE7() || GisClient.isIE8() ) {
-				expandIcon.setHTML("<i class='icon-chevron-down'></i>");
+				expandIcon.setHTML("<i class='fa fa-chevron-down'></i>");
 			} else {
 				expandIcon.addStyleName("open");
 			}
@@ -346,7 +346,7 @@ public class LayerPanel extends SimplePanel implements UpdateStartHandler, Updat
 			content.setHeight("0px");
 			content.getElement().getStyle().setOpacity(0);
 			if( GisClient.isIE7() || GisClient.isIE8() ) {
-				expandIcon.setHTML("<i class='icon-chevron-down'></i>");
+				expandIcon.setHTML("<i class='fa fa-chevron-down'></i>");
 			} else {
 				expandIcon.removeStyleName("open");
 			}
@@ -447,20 +447,20 @@ public class LayerPanel extends SimplePanel implements UpdateStartHandler, Updat
 		if( datalayer.isVisible() ) {
 		    if( this.requestError ) {
 	            visibilityCheckBox.setTitle("Failed to load image");
-	            visibilityCheckBox.setHTML("<i class='icon-exclamation' style='color:red'></i>");
+	            visibilityCheckBox.setHTML("<i class='fa fa-exclamation' style='color:red'></i>");
 	            return;
 		    } else if( this.loading ) {
 		        visibilityCheckBox.setTitle("Loading layer...");
-		        visibilityCheckBox.setHTML("<i class='icon-refresh icon-spin'></i>");
+		        visibilityCheckBox.setHTML("<i class='fa fa-refresh fa-spin'></i>");
 		    } else {
 		        visibilityCheckBox.setTitle("Show layer");
-		        visibilityCheckBox.setHTML("<i class='icon-eye-open'></i>");
+		        visibilityCheckBox.setHTML("<i class='fa fa-eye'></i>");
 		    }
 		    
 			visibilityCheckBox.addStyleName("on");
 		} else {
 		    visibilityCheckBox.setTitle("Hide layer");
-			visibilityCheckBox.setHTML("<i class='icon-eye-close'></i>");
+			visibilityCheckBox.setHTML("<i class='fa fa-eye-slash'></i>");
 			visibilityCheckBox.removeStyleName("on");
 		}
 		

@@ -141,7 +141,7 @@ public class ServiceAdder extends BootstrapModalLayout {
 			}
 		});
 		
-		search.setHTML("<i class='icon-search'></i>");
+		search.setHTML("<i class='fa fa-search'></i>");
 		search.addClickHandler(new ClickHandler(){
 			@Override
 			public void onClick(ClickEvent event) {
@@ -448,7 +448,7 @@ public class ServiceAdder extends BootstrapModalLayout {
 		directoryPanel.clear();
 		JsArrayString folders = info.getFolders();
 		for( int i = 0;  i < folders.length(); i++ ) {
-			Anchor link = new Anchor("<i class='icon-folder-open-alt'></i> "+folders.get(i),true);
+			Anchor link = new Anchor("<i class='fa fa-folder-open-o'></i> "+folders.get(i),true);
 			link.getElement().setAttribute("value", folders.get(i));
 			link.setStyleName("menu-link");
 			link.addClickHandler(browseLinkHandler);
@@ -478,7 +478,7 @@ public class ServiceAdder extends BootstrapModalLayout {
 					}
 				});*/
 				
-				Anchor link = new Anchor("<i class='icon-check-empty'></i> "+services.get(i).getName().replaceAll(".*/", ""),true);
+				Anchor link = new Anchor("<i class='fa fa-square-o'></i> "+services.get(i).getName().replaceAll(".*/", ""),true);
 				link.getElement().setAttribute("value", services.get(i).getName().replaceAll(".*/", ""));
 				link.setStyleName("menu-link");
 				link.addClickHandler(new ClickHandler(){

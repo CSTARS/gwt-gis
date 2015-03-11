@@ -16,26 +16,5 @@
 	    
 	    <g:FlowPanel ui:field="root"></g:FlowPanel>
 	    
-	    <!-- <g:Anchor ui:field="layersMenuBtn" styleName="{style.link}">Layers Menu</g:Anchor>
-	    <div class="{style.snippet}">
-	        The Layers Menu is right hand panel contains the list of available layers.  This menu
-	        is used to change the visibility of layers (<i class="icon-eye-open"></i>) and 
-	        reorder layer (<i class="icon-resize-vertical"></i>) among other things.
-	    </div>
-	    
-	    <g:Anchor ui:field="toolbarMenuBtn" styleName="{style.link}">Top Toolbar</g:Anchor>
-        <div class="{style.snippet}">
-            The Top Toolbar stretches across the top of the app and contains buttons to the
-            main menu (<i class="icon-reorder"></i>), geolocation service (<i class="icon-screenshot"></i>) 
-            and search box.
-        </div>
-        
-        <g:Anchor ui:field="drawMenuBtn" styleName="{style.link}">Draw Tool</g:Anchor>
-        <div class="{style.snippet}">
-            The Draw Tool (<i class="icon-pencil"></i>) available through the main menu (<i class="icon-reorder"></i>) button located 
-            in the Top Toolbar.
-        </div>
-	    -->
-	    
 	</g:HTMLPanel>
 </ui:UiBinder> 

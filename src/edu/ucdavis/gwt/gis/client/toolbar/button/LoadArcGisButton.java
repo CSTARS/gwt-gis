@@ -15,7 +15,7 @@ public class LoadArcGisButton extends ToolbarItem {
 
 	@Override
 	public String getIcon() {	
-		return "<i class='icon-cloud-download'></i>";
+		return "<i class='fa fa-cloud-download'></i>";
 	}
 
 	@Override
