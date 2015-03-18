@@ -296,7 +296,7 @@ public class LayerPopup extends BootstrapModalLayout {
 	}
 	
 	public Widget getZoomToButton() {
-		Anchor a = new Anchor("<i class='fa arrows-alt menu-icon'></i>&nbsp;&nbsp;Zoom to Layer Extent", true);
+		Anchor a = new Anchor("<i class='fa fa-arrows-alt menu-icon'></i>&nbsp;&nbsp;Zoom to Layer Extent", true);
 		a.setStyleName("menu-link");
 		a.addClickHandler(new ClickHandler(){
 			@Override
@@ -319,7 +319,7 @@ public class LayerPopup extends BootstrapModalLayout {
 	}
 	
 	public Widget getRemoveButton() {
-		Anchor a = new Anchor("<i class='fa times-circle-o menu-icon'></i> Remove Layer", true);
+		Anchor a = new Anchor("<i class='fa fa-times-circle-o menu-icon'></i> Remove Layer", true);
 		a.setStyleName("menu-link");
 		a.addClickHandler(new ClickHandler(){
 			@Override

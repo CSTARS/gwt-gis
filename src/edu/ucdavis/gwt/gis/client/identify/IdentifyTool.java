@@ -22,17 +22,24 @@ import com.google.gwt.user.client.ui.Widget;
 
 import edu.ucdavis.cstars.client.Error;
 import edu.ucdavis.cstars.client.Graphic;
+import edu.ucdavis.cstars.client.callback.IdentifyCallback;
 import edu.ucdavis.cstars.client.callback.QueryTaskCallback;
 import edu.ucdavis.cstars.client.event.ClickHandler;
 import edu.ucdavis.cstars.client.event.MouseEvent;
 import edu.ucdavis.cstars.client.geometry.Extent;
 import edu.ucdavis.cstars.client.geometry.Geometry;
 import edu.ucdavis.cstars.client.geometry.Point;
+import edu.ucdavis.cstars.client.layers.ArcGISDynamicMapServiceLayer;
+import edu.ucdavis.cstars.client.layers.DynamicMapServiceLayer;
 import edu.ucdavis.cstars.client.layers.LayerInfo;
 import edu.ucdavis.cstars.client.tasks.FeatureSet;
+import edu.ucdavis.cstars.client.tasks.IdentifyParameters;
+import edu.ucdavis.cstars.client.tasks.IdentifyParameters.LayerOption;
+import edu.ucdavis.cstars.client.tasks.IdentifyTask;
 import edu.ucdavis.cstars.client.tasks.Query;
 import edu.ucdavis.cstars.client.tasks.QueryTask;
 import edu.ucdavis.gwt.gis.client.AppManager;
+import edu.ucdavis.gwt.gis.client.Debugger;
 import edu.ucdavis.gwt.gis.client.config.LayerConfig;
 import edu.ucdavis.gwt.gis.client.layers.DataLayer;
 import edu.ucdavis.gwt.gis.client.layers.MapServerDataLayer;
@@ -363,6 +370,13 @@ public class IdentifyTool extends BootstrapModalLayout implements MapController 
 								public void onGeometryReady(HashMap<String, FeatureSet> fs) {
 									IdentifyResult.INSTANCE.showResult(fs);
 								}
+
+								// response if we use an identify result (for a Raster Layer)
+								@Override
+								public void onGeometryReady(
+										JsArray<edu.ucdavis.cstars.client.tasks.IdentifyResult> irs) {
+									IdentifyResult.INSTANCE.showResult(irs);
+								}
 						}
 				)
 			);
@@ -395,6 +409,7 @@ public class IdentifyTool extends BootstrapModalLayout implements MapController 
 		// returns a hash of url to response feature set
 		// url is required later on if user wants to export data
 		public void onGeometryReady(HashMap<String, FeatureSet> fs);
+		public void onGeometryReady(JsArray<edu.ucdavis.cstars.client.tasks.IdentifyResult> irs);
 	}
 	
 	private class FindIntersectingGeometry {
@@ -403,13 +418,25 @@ public class IdentifyTool extends BootstrapModalLayout implements MapController 
 		private HashMap<String, FeatureSet> featureSets = new HashMap<String, FeatureSet>();
 		private int responses = 0;
 		private MapServerDataLayer dl;
+		// did we use the identifyQuery instead?
+		private boolean identifyQuery = false;
 
 		public FindIntersectingGeometry(MapServerDataLayer dl, FindIntersectingGeometryCallback callback) {
 			this.callback = callback;
 			this.dl = dl;
+			
+			// if any sublayer has type="Raster Layer" we are going to switch over to identify task
+			identifyQuery = _isIdentifyQuery(this.dl.getSubLayerData());
 		}
 	
 		private void query(Geometry intersect) {
+			
+			if( identifyQuery ) {
+				this.identify(intersect);
+				return;
+			}
+			
+			
 			for( int i = 0; i < dl.getLayersInfo().length(); i++ ) {
 				LayerInfo info = dl.getLayersInfo().get(i);
 				 
@@ -420,8 +447,7 @@ public class IdentifyTool extends BootstrapModalLayout implements MapController 
 
 				makeRequest(q, queryTask, info.getName());
 				
-			}
-			
+			}	
 		}
 		
 		private void makeRequest(Query q, final QueryTask queryTask, final String name) {
@@ -446,6 +472,45 @@ public class IdentifyTool extends BootstrapModalLayout implements MapController 
 					}
 				}
 			});
+		}
+		
+		private void identify(Geometry intersect) {
+			IdentifyTask task = IdentifyTask.create(dl.getUrl());
+			
+			IdentifyParameters params = IdentifyParameters.create();
+			params.setLayerOption(LayerOption.LAYER_OPTION_VISIBLE);
+			params.setGeometry(intersect);
+			params.setMapExtent(AppManager.INSTANCE.getMap().getExtent());
+			params.setHeight(AppManager.INSTANCE.getMap().getHeight());
+			params.setWidth(AppManager.INSTANCE.getMap().getWidth());
+			params.setTolerance(3);
+			
+			task.execute(params, new IdentifyCallback(){
+				@Override
+				public void onComplete(
+						JsArray<edu.ucdavis.cstars.client.tasks.IdentifyResult> identifyResults) {
+					callback.onGeometryReady(identifyResults);
+				}
+
+				@SuppressWarnings("unchecked")
+				@Override
+				public void onError(Error error) {
+					callback.onGeometryReady((JsArray<edu.ucdavis.cstars.client.tasks.IdentifyResult>) JavaScriptObject.createArray());
+				}
+			});
+		}
+		
+		private native boolean _isIdentifyQuery(JavaScriptObject info) /*-{
+			if( !info.layers ) return false;
+			
+			for( var i = 0; i < info.layers.length; i++ ) {
+				if( info.layers[i].type == "Raster Layer" ) return true;
+			}
+			return false;
+		}-*/;
+		
+		public boolean isIdentifyQuery() {
+			return identifyQuery;
 		}
 		
 		public void cancel() {

@@ -2,6 +2,7 @@ package edu.ucdavis.gwt.gis.client.identify;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -20,6 +21,7 @@ import edu.ucdavis.cstars.client.Graphic.Attributes;
 import edu.ucdavis.cstars.client.geometry.Geometry;
 import edu.ucdavis.cstars.client.tasks.FeatureSet;
 import edu.ucdavis.gwt.gis.client.AppManager;
+import edu.ucdavis.gwt.gis.client.Debugger;
 import edu.ucdavis.gwt.gis.client.layers.MapServerDataLayer;
 import edu.ucdavis.gwt.gis.client.layout.modal.BootstrapModalLayout;
 
@@ -131,15 +133,32 @@ public class IdentifyResult extends BootstrapModalLayout {
 			for( String url: results.keySet() ) {
 				FeatureSet fs = results.get(url);
 				
-				addTable(fs.getDisplayFieldName(), fs.getFeatures(), url);
+				addTable(fs.getDisplayFieldName(), fs.getFeatures(), url, false);
 			}
 		}
 		
 		if( !isVisible() ) show();
 	}
-
 	
-	private void addTable(String title, JsArray<Graphic> features, String url) {
+	@SuppressWarnings("unchecked")
+	public void showResult(JsArray<edu.ucdavis.cstars.client.tasks.IdentifyResult> results) {
+		_clear(layerResultTable);
+		currentTableData = JavaScriptObject.createObject();
+		
+		if( results.length() == 0 ) {
+			layerResultTable.setInnerHTML("No interesting geometries found.");
+		} else {
+			JsArray<Graphic> features = (JsArray<Graphic>) JavaScriptObject.createArray();
+			for(int i = 0; i < results.length(); i++ ) {
+				features.push(results.get(i).getFeature());
+			}
+			addTable("", features, "", true);
+		}
+		
+		if( !isVisible() ) show();
+	}
+	
+	private void addTable(String title, JsArray<Graphic> features, String url, boolean isIdentify) {
 		// create export array
 		JavaScriptObject arr = JavaScriptObject.createArray();
 		
@@ -180,7 +199,7 @@ public class IdentifyResult extends BootstrapModalLayout {
 		}
 		
 		_put(currentTableData, title, arr);
-		_setTable(layerResultTable, title, table, url, this, AppManager.INSTANCE.getConfig().getProxy());
+		_setTable(layerResultTable, title, table, url, this, AppManager.INSTANCE.getConfig().getProxy(), isIdentify);
 	}
 	
 	private String checkLink(String text) {
@@ -210,77 +229,81 @@ public class IdentifyResult extends BootstrapModalLayout {
 		$wnd.$(ele).html("");
 	}-*/;
 	
-	private native void _setTable(Element ele, String title, String table, String url, IdentifyResult ir, String exportUrl) /*-{
-		var exportBtn = $wnd.$('<div style="height:45px">'+title+' <br /><i class="fa fa-download"></i> <a class="d-kml">kml</a> - <a class="d-shape">shapefile</a> - <a class="d-csv">csv</a> </div>');
-		exportBtn.find('.d-csv').on('click', function(){
-			var tables = ir.@edu.ucdavis.gwt.gis.client.identify.IdentifyResult::currentTableData;
-			if( tables[title] ) {
+	private native void _setTable(Element ele, String title, String table, String url, IdentifyResult ir, String exportUrl, boolean isIdentify) /*-{
+		if( isIdentify ) {
+			$wnd.$(ele).html("<span style='font-size:12px;color:#888'>*This is a raster layer.  Identification is by single point.  Export is not supported.</span>");
+		} else {
+			var exportBtn = $wnd.$('<div style="height:45px">'+title+' <br /><i class="fa fa-download"></i> <a class="d-kml">kml</a> - <a class="d-shape">shapefile</a> - <a class="d-csv">csv</a> </div>');
+			exportBtn.find('.d-csv').on('click', function(){
+				var tables = ir.@edu.ucdavis.gwt.gis.client.identify.IdentifyResult::currentTableData;
+				if( tables[title] ) {
+					
+					var form = $wnd.$('<form name="input" style="display:none" target="_blank" action="'+exportUrl.replace(/proxy$/,"export")+'" method="post">' +
+										'<input type="text" name="title">'+
+										'<input type="text" name="data">'+
+										'<input type="text" name="type">'+
+									  '</form>');
+					
+					form.find("input[name=title]").val(title);
+					form.find("input[name=type]").val("csv");
+					form.find("input[name=data]").val(JSON.stringify(tables[title]));
+					form.submit();
+					
+					// TODO: not attaching to DOM for now... do we need to for good old IE?
+					//setTimeout(function(){
+					//	form.remove();	
+					//},10000);
+				}
+			});
+			
+			exportBtn.find('a').css('cursor','pointer');
+			
+			exportBtn.find('.d-kml').on('click', function() {
+				var geo = ir.@edu.ucdavis.gwt.gis.client.identify.IdentifyResult::currentIntersectGeo;
+				var geoType = @edu.ucdavis.cstars.client.geometry.Geometry::getJsonType(Ledu/ucdavis/cstars/client/geometry/Geometry;)(geo);
 				
 				var form = $wnd.$('<form name="input" style="display:none" target="_blank" action="'+exportUrl.replace(/proxy$/,"export")+'" method="post">' +
-									'<input type="text" name="title">'+
-									'<input type="text" name="data">'+
-									'<input type="text" name="type">'+
-								  '</form>');
+						'<input type="text" name="title">'+
+						'<input type="text" name="url">'+
+						'<input type="text" name="type">'+
+						'<input type="text" name="geometry">'+
+						'<input type="text" name="geometryType">'+
+						'<input type="text" name="sr">'+
+					'</form>');
 				
 				form.find("input[name=title]").val(title);
-				form.find("input[name=type]").val("csv");
-				form.find("input[name=data]").val(JSON.stringify(tables[title]));
+				form.find("input[name=url]").val(url+"/query");
+				form.find("input[name=type]").val("KML");
+				form.find("input[name=geometry]").val(JSON.stringify(geo.toJson()));
+				form.find("input[name=geometryType]").val(geoType);
+				form.find("input[name=sr]").val(geo.spatialReference.wkid);
 				form.submit();
+			});
+			
+			exportBtn.find('.d-shape').on('click', function() {
+				var geo = ir.@edu.ucdavis.gwt.gis.client.identify.IdentifyResult::currentIntersectGeo;
+				var geoType = @edu.ucdavis.cstars.client.geometry.Geometry::getJsonType(Ledu/ucdavis/cstars/client/geometry/Geometry;)(geo);
 				
-				// TODO: not attaching to DOM for now... do we need to for good old IE?
-				//setTimeout(function(){
-				//	form.remove();	
-				//},10000);
-			}
-		});
-		
-		exportBtn.find('a').css('cursor','pointer');
-		
-		exportBtn.find('.d-kml').on('click', function() {
-			var geo = ir.@edu.ucdavis.gwt.gis.client.identify.IdentifyResult::currentIntersectGeo;
-			var geoType = @edu.ucdavis.cstars.client.geometry.Geometry::getJsonType(Ledu/ucdavis/cstars/client/geometry/Geometry;)(geo);
-			
-			var form = $wnd.$('<form name="input" style="display:none" target="_blank" action="'+exportUrl.replace(/proxy$/,"export")+'" method="post">' +
-					'<input type="text" name="title">'+
-					'<input type="text" name="url">'+
-					'<input type="text" name="type">'+
-					'<input type="text" name="geometry">'+
-					'<input type="text" name="geometryType">'+
-					'<input type="text" name="sr">'+
-				'</form>');
-			
-			form.find("input[name=title]").val(title);
-			form.find("input[name=url]").val(url+"/query");
-			form.find("input[name=type]").val("KML");
-			form.find("input[name=geometry]").val(JSON.stringify(geo.toJson()));
-			form.find("input[name=geometryType]").val(geoType);
-			form.find("input[name=sr]").val(geo.spatialReference.wkid);
-			form.submit();
-		});
-		
-		exportBtn.find('.d-shape').on('click', function() {
-			var geo = ir.@edu.ucdavis.gwt.gis.client.identify.IdentifyResult::currentIntersectGeo;
-			var geoType = @edu.ucdavis.cstars.client.geometry.Geometry::getJsonType(Ledu/ucdavis/cstars/client/geometry/Geometry;)(geo);
-			
-			var form = $wnd.$('<form name="input" style="display:none" target="_blank" action="'+exportUrl.replace(/proxy$/,"export")+'" method="post">' +
-					'<input type="text" name="title">'+
-					'<input type="text" name="url">'+
-					'<input type="text" name="type">'+
-					'<input type="text" name="geometry">'+
-					'<input type="text" name="geometryType">'+
-					'<input type="text" name="sr">'+
-				'</form>');
-			
-			form.find("input[name=title]").val(title);
-			form.find("input[name=url]").val(url+"/query");
-			form.find("input[name=type]").val("ESRI Shapefile");
-			form.find("input[name=geometry]").val(JSON.stringify(geo.toJson()));
-			form.find("input[name=geometryType]").val(geoType);
-			form.find("input[name=sr]").val(geo.spatialReference.wkid);
-			form.submit();
-		});
+				var form = $wnd.$('<form name="input" style="display:none" target="_blank" action="'+exportUrl.replace(/proxy$/,"export")+'" method="post">' +
+						'<input type="text" name="title">'+
+						'<input type="text" name="url">'+
+						'<input type="text" name="type">'+
+						'<input type="text" name="geometry">'+
+						'<input type="text" name="geometryType">'+
+						'<input type="text" name="sr">'+
+					'</form>');
 				
-		$wnd.$(ele).append(exportBtn);
+				form.find("input[name=title]").val(title);
+				form.find("input[name=url]").val(url+"/query");
+				form.find("input[name=type]").val("ESRI Shapefile");
+				form.find("input[name=geometry]").val(JSON.stringify(geo.toJson()));
+				form.find("input[name=geometryType]").val(geoType);
+				form.find("input[name=sr]").val(geo.spatialReference.wkid);
+				form.submit();
+			});
+					
+			$wnd.$(ele).append(exportBtn);
+		}
 		$wnd.$(ele).append($wnd.$(table));
 	}-*/;
 	
